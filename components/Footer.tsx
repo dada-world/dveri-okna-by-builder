@@ -33,7 +33,6 @@ const Footer = () => {
               <ul className="space-y-2 text-gray-300">
                 <li><a href="tel:+375293423221" className="hover:text-white transition-colors hover-lift hover-glow">+375 29 342-32-21</a></li>
                 <li><a href="mailto:vitaliy9977@mail.ru" className="hover:text-white transition-colors hover-lift hover-glow">vitaliy9977@mail.ru</a></li>
-                <li><span className="hover-lift">г.Лельчицы, ул. Советская, д. 79/11</span></li>
               </ul>
             </div>
           </div>
