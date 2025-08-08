@@ -149,37 +149,37 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/два.jpg?v=2025",
+    src: "/lovable-uploads/doors/два.jpg",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/три.jpg?v=2025",
+    src: "/lovable-uploads/doors/три.jpg",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/четыре.jpg?v=2025",
+    src: "/lovable-uploads/doors/четыре.jpg",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/пять.jpg?v=2025",
+    src: "/lovable-uploads/doors/пять.jpg",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/шесть.jpg?v=2025",
+    src: "/lovable-uploads/doors/шесть.jpg",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/семь.jpg?v=2025",
+    src: "/lovable-uploads/doors/семь.jpg",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/восемь.jpg?v=2025",
+    src: "/lovable-uploads/doors/восемь.jpg",
     alt: "",
     category: "Двери"
   }
