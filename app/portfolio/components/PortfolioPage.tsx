@@ -164,11 +164,6 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/пять.jpg",
-    alt: "",
-    category: "Двери"
-  },
-  {
     src: "/lovable-uploads/doors/шесть.png",
     alt: "",
     category: "Двери"
