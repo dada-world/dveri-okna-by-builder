@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NEXT_PUBLIC_BASE_PATH: "/dveri-okna-by-builder"
+      NEXT_PUBLIC_FORM_ENDPOINT: "https://submit-form.com/esY14v503"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

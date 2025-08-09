@@ -83,6 +83,8 @@ const WindowConfigurationForm = () => {
     }).join("\n\n");
   };
 
+  const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '/api/contact';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -126,10 +128,11 @@ const WindowConfigurationForm = () => {
     }
     
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(FORM_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({
           name: contactInfo.name,
