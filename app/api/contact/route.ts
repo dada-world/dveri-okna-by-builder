@@ -30,26 +30,32 @@ export async function POST(request: NextRequest) {
       body: JSON.stringify(formData),
     });
 
-    const text = await formResponse.text();
-    const ok = formResponse.ok;
-
-    if (!ok) {
-      console.error('Form submit failed', formResponse.status, text);
-      return NextResponse.json({ success: false, message: text || 'submit error' }, { status: 502 });
+    // Проверяем статус ответа
+    if (formResponse.status === 302 || formResponse.status === 200) {
+      // 302 - редирект означает успешную отправку
+      // 200 - успешная отправка
+      console.log('Form submitted successfully, status:', formResponse.status);
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Сообщение отправлено успешно' 
+      });
     }
 
-    // Try parse JSON, fallback to text
-    let parsed: any = null;
-    try { parsed = JSON.parse(text); } catch {}
-
-    const res = NextResponse.json({ success: true, message: 'Сообщение отправлено успешно', data: parsed || text });
-    res.headers.set('Access-Control-Allow-Origin', '*');
-    res.headers.set('Access-Control-Allow-Headers', 'Content-Type, Accept');
-    return res;
+    // Если статус не 200 или 302, читаем ответ для диагностики
+    const text = await formResponse.text();
+    console.error('Form submit failed', formResponse.status, text);
+    
+    return NextResponse.json({ 
+      success: false, 
+      message: 'Ошибка при отправке формы' 
+    }, { status: 502 });
 
   } catch (error) {
     console.error('Error sending message:', error);
-    return NextResponse.json({ success: false, message: 'Ошибка при отправке сообщения' }, { status: 500 });
+    return NextResponse.json({ 
+      success: false, 
+      message: 'Ошибка при отправке сообщения' 
+    }, { status: 500 });
   }
 }
 

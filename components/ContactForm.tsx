@@ -22,22 +22,61 @@ const ContactForm = () => {
   };
 
   const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '/api/contact';
+  const FALLBACK_ENDPOINT = 'https://submit-form.com/esY14v503';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify(formData),
-      });
+      // Убеждаемся, что email всегда присутствует (требуется submit-form.com)
+      const dataToSend = {
+        ...formData,
+        email: formData.email || 'noreply@example.com'
+      };
 
-      const result = await response.json();
+      console.log('Отправка формы:', dataToSend);
+      console.log('Endpoint:', FORM_ENDPOINT);
+
+      let response;
+      let result;
+
+      try {
+        // Сначала пробуем локальный API
+        response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(dataToSend),
+        });
+
+        console.log('Ответ локального API:', response.status, response.statusText);
+        result = await response.json();
+        console.log('Результат локального API:', result);
+      } catch (apiError) {
+        console.log('Локальный API не работает, используем fallback:', apiError);
+        
+        // Fallback на прямую отправку в submit-form.com
+        response = await fetch(FALLBACK_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(dataToSend),
+        });
+
+        console.log('Ответ submit-form.com:', response.status, response.statusText);
+        
+        // submit-form.com возвращает 302 при успехе
+        if (response.status === 302 || response.status === 200) {
+          result = { success: true, message: 'Сообщение отправлено успешно' };
+        } else {
+          result = { success: false, message: 'Ошибка при отправке' };
+        }
+      }
 
       if (result.success) {
         alert('Сообщение отправлено успешно! Мы свяжемся с вами в ближайшее время.');

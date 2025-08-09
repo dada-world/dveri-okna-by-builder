@@ -84,64 +84,91 @@ const WindowConfigurationForm = () => {
   };
 
   const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '/api/contact';
+  const FALLBACK_ENDPOINT = 'https://submit-form.com/esY14v503';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate all windows
-    for (let i = 0; i < windows.length; i++) {
-      if (!windows[i].windowType) {
-        toast({
-          title: "Ошибка",
-          description: `Выберите тип окна #${i + 1}`,
-          variant: "destructive"
-        });
-        return;
-      }
-
-      if (!windows[i].dimensions.width || !windows[i].dimensions.height) {
-        toast({
-          title: "Ошибка",
-          description: `Укажите размеры окна #${i + 1}`,
-          variant: "destructive"
-        });
-        return;
-      }
-      
-      if (windows[i].windowType === "other-type" && !windows[i].options.includes("description")) {
-        toast({
-          title: "Ошибка",
-          description: `Опишите окно #${i + 1}`,
-          variant: "destructive"
-        });
-        return;
-      }
+    // Базовая валидация
+    if (!contactInfo.name || !contactInfo.phone) {
+      toast({
+        title: "Заполните поля",
+        description: "Имя и телефон обязательны для заполнения",
+        variant: "destructive"
+      });
+      return;
     }
     
-    if (!contactInfo.name || !contactInfo.phone || !contactInfo.consent) {
+    if (!contactInfo.consent) {
       toast({
-        title: "Ошибка",
-        description: "Заполните все обязательные поля",
+        title: "Согласие обязательно",
+        description: "Необходимо согласие на обработку персональных данных",
+        variant: "destructive"
+      });
+      return;
+    }
+    
+    // Проверяем, что есть хотя бы одно окно с типом
+    const hasValidWindows = windows.some(window => window.windowType);
+    if (!hasValidWindows) {
+      toast({
+        title: "Выберите тип окна",
+        description: "Необходимо выбрать тип хотя бы одного окна",
         variant: "destructive"
       });
       return;
     }
     
     try {
-      const response = await fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: contactInfo.name,
-          phone: contactInfo.phone,
-          windows_configuration: formatWindowsData()
-        }),
-      });
+      const formData = {
+        name: contactInfo.name,
+        phone: contactInfo.phone,
+        email: 'noreply@example.com', // submit-form.com требует email
+        windows_configuration: formatWindowsData()
+      };
 
-      const result = await response.json();
+      console.log('Отправка формы окон:', formData);
+      console.log('Endpoint:', FORM_ENDPOINT);
+
+      let response;
+      let result;
+
+      try {
+        // Сначала пробуем локальный API
+        response = await fetch(FORM_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData),
+        });
+
+        console.log('Ответ локального API:', response.status, response.statusText);
+        result = await response.json();
+        console.log('Результат локального API:', result);
+      } catch (apiError) {
+        console.log('Локальный API не работает, используем fallback:', apiError);
+        
+        // Fallback на прямую отправку в submit-form.com
+        response = await fetch(FALLBACK_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(formData),
+        });
+
+        console.log('Ответ submit-form.com:', response.status, response.statusText);
+        
+        // submit-form.com возвращает 302 при успехе
+        if (response.status === 302 || response.status === 200) {
+          result = { success: true, message: 'Заявка отправлена успешно' };
+        } else {
+          result = { success: false, message: 'Ошибка при отправке' };
+        }
+      }
 
       if (result.success) {
         toast({
