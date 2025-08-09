@@ -149,32 +149,32 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/два.png",
+    src: "/lovable-uploads/doors/two.png",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/три.png",
+    src: "/lovable-uploads/doors/three.png",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/четыре.png",
+    src: "/lovable-uploads/doors/four.png",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/шесть.png",
+    src: "/lovable-uploads/doors/six.png",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/семь.png",
+    src: "/lovable-uploads/doors/seven.png",
     alt: "",
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/doors/восемь.png",
+    src: "/lovable-uploads/doors/eight.png",
     alt: "",
     category: "Двери"
   }
