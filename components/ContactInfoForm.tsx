@@ -55,7 +55,10 @@ const ContactInfoForm = ({ contactInfo, onContactInfoChange }: ContactInfoFormPr
             required
           />
           <label htmlFor="consent" className="ml-2">
-            Нажимая кнопку, вы соглашаетесь на <a href="#" className="text-brand-orange underline">обработку персональных данных</a>
+            Нажимая кнопку, вы соглашаетесь на {" "}
+            <a href="/consent" target="_blank" rel="noopener noreferrer" className="text-brand-orange underline">
+              обработку персональных данных
+            </a>
           </label>
         </div>
       </div>
