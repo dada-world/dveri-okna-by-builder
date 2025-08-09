@@ -205,7 +205,7 @@ const PortfolioPage = () => {
     ? portfolioImages 
     : portfolioImages.filter(image => image.category === selectedCategory);
 
-
+  const publicPrefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -259,7 +259,7 @@ const PortfolioPage = () => {
                   <div className="relative group aspect-square">
                     {!imageErrors.has(image.src) ? (
                       <img 
-                        src={image.src} 
+                        src={`${publicPrefix}${image.src}`} 
                         alt={image.alt} 
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
