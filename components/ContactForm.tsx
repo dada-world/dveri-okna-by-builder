@@ -196,7 +196,10 @@ const ContactForm = () => {
               </button>
               
               <p className="text-sm text-gray-500 mt-4">
-                Нажимая кнопку, вы соглашаетесь на <Link href="/privacy" className="text-brand-blue hover:underline">обработку персональных данных</Link>
+                Нажимая кнопку, вы соглашаетесь на {" "}
+                <a href="/consent" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">
+                  обработку персональных данных
+                </a>
               </p>
             </form>
           </div>
