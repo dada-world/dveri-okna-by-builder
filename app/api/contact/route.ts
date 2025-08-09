@@ -18,12 +18,7 @@ const translateOptions = (options: string[]): string => {
 
 export async function POST(request: NextRequest) {
   try {
-    // Диагностика - выводим настройки
-    console.log('=== TELEGRAM SETTINGS ===');
-    console.log('BOT_TOKEN:', TELEGRAM_BOT_TOKEN);
-    console.log('CHAT_ID:', TELEGRAM_CHAT_ID);
-    console.log('========================');
-
+    // Получаем данные из запроса
     const body = await request.json();
     const { name, phone, email, message, windows_configuration } = body;
 
