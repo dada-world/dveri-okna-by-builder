@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Настройки Telegram бота
-const TELEGRAM_BOT_TOKEN = '7974395055:AAEAjacUbgE6cq77I6h_PItbWLyCgbOx1cE';
-const TELEGRAM_CHAT_ID = '-1002709982809'; // ID вашей группы (обновлено)
+// URL для отправки формы
+const FORM_SUBMIT_URL = 'https://submit-form.com/esY14v503';
 
 // Словарь для перевода технических названий на русский
 const translateOptions = (options: string[]): string => {
@@ -28,16 +27,18 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, phone, email, message, windows_configuration } = body;
 
-    // Формируем сообщение для Telegram
-    let telegramMessage = `🔔 *Новая заявка с сайта*\n\n`;
+        // Подготавливаем данные для отправки
+    const formData = {
+      name,
+      phone,
+      email,
+      message,
+      windows_configuration: windows_configuration ? windows_configuration : undefined,
+      timestamp: new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Minsk' })
+    };
     
-    if (name) telegramMessage += `👤 *Имя:* ${name}\n`;
-    if (phone) telegramMessage += `📞 *Телефон:* ${phone}\n`;
-    if (email) telegramMessage += `📧 *Email:* ${email}\n`;
-    if (message) telegramMessage += `💬 *Сообщение:* ${message}\n`;
-    
+    // Если есть конфигурация окон, переводим технические названия на русский
     if (windows_configuration) {
-      // Переводим технические названия на русский
       let translatedConfiguration = windows_configuration;
       
       // Заменяем технические названия опций на русские
@@ -46,40 +47,32 @@ export async function POST(request: NextRequest) {
       translatedConfiguration = translatedConfiguration.replace(/sill/g, 'Подоконник');
       translatedConfiguration = translatedConfiguration.replace(/none/g, 'Ничего из перечисленного');
       
-      telegramMessage += `\n🏠 *Конфигурация окон:*\n${translatedConfiguration}\n`;
+      formData.windows_configuration = translatedConfiguration;
     }
 
-    telegramMessage += `\n⏰ *Время:* ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Minsk' })}`;
+    console.log('=== SENDING FORM DATA ===');
+    console.log('Form data:', formData);
 
-    console.log('=== SENDING MESSAGE ===');
-    console.log('Message:', telegramMessage);
-
-    // Отправляем сообщение в Telegram
-    const telegramResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    // Отправляем данные на FormSubmit
+    const formResponse = await fetch(FORM_SUBMIT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text: telegramMessage,
-        parse_mode: 'Markdown',
-      }),
+      body: JSON.stringify(formData),
     });
 
-    const telegramResult = await telegramResponse.json();
-    console.log('=== TELEGRAM RESPONSE ===');
-    console.log('Status:', telegramResponse.status);
-    console.log('Response:', JSON.stringify(telegramResult, null, 2));
+    console.log('=== FORM SUBMIT RESPONSE ===');
+    console.log('Status:', formResponse.status);
     console.log('========================');
 
-    if (!telegramResponse.ok) {
-      throw new Error('Telegram API error: ' + JSON.stringify(telegramResult));
+    if (!formResponse.ok) {
+      throw new Error('Form submission error: ' + formResponse.statusText);
     }
 
     return NextResponse.json({ 
       success: true, 
-      message: 'Сообщение отправлено успешно в Telegram группу' 
+      message: 'Сообщение отправлено успешно' 
     });
 
   } catch (error) {
@@ -97,4 +90,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-} 
+}
