@@ -128,6 +128,8 @@ const Calculator = () => {
     return total;
   };
 
+  const FORM_ENDPOINT = process.env.NEXT_PUBLIC_FORM_ENDPOINT || '/api/contact';
+
   const nextStep = async () => {
     if (step === 1 && !windowType) {
       toast({
@@ -162,10 +164,11 @@ const Calculator = () => {
       
       // Form submission logic
       try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch(FORM_ENDPOINT, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json'
           },
           body: JSON.stringify({
             name: contactInfo.name,
