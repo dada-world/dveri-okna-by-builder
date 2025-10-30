@@ -12,8 +12,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/_next/',
-          '/admin/',
-          '/private/',
         ],
       },
       {
@@ -22,8 +20,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/_next/',
-          '/admin/',
-          '/private/',
         ],
       },
       {
@@ -32,8 +28,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/_next/',
-          '/admin/',
-          '/private/',
         ],
       },
       {
@@ -42,8 +36,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           '/api/',
           '/_next/',
-          '/admin/',
-          '/private/',
         ],
       },
     ],
