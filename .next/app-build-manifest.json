@@ -1,20 +1,60 @@
 {
   "pages": {
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
+    "/not-found": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/972-0fea25be27918f94.js",
+      "static/chunks/app/not-found-a352297a7ad7745b.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/app/_not-found/page-d83ce327f8386bd6.js"
     ],
     "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/css/563c3f026b360e43.css",
+      "static/css/6f7413bf09268228.css",
+      "static/chunks/602-ade65e66a63f3097.js",
+      "static/chunks/app/layout-b86d17c8fd520f56.js"
     ],
-    "/not-found": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/not-found.js"
+    "/page": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/972-0fea25be27918f94.js",
+      "static/chunks/app/page-9c0efabff7cd6f63.js"
+    ],
+    "/calculator/page": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/972-0fea25be27918f94.js",
+      "static/chunks/app/calculator/page-9798513c9e24c0ef.js"
+    ],
+    "/consent/page": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/app/consent/page-6b4d60bfee206f9d.js"
+    ],
+    "/portfolio/page": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/972-0fea25be27918f94.js",
+      "static/chunks/app/portfolio/page-d7093781afd9d641.js"
     ]
   }
 }
