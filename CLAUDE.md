@@ -64,14 +64,14 @@ The project has a **dual-endpoint form system** with fallback mechanism:
 
 ### SEO Files Location
 - `lib/seo.ts` - All SEO metadata and structured data generation
-- `app/robots.ts` - Generates robots.txt (blocks only `/api/` and `/_next/`)
+- `app/robots.ts` - Generates robots.txt (blocks only `/api/`, allows `/_next/` for proper indexing)
 - `app/sitemap.ts` - Generates sitemap.xml dynamically
 - Meta tags integrated in `app/layout.tsx` and individual page files
 
 ### robots.txt Configuration
 The `app/robots.ts` file generates the robots.txt file during build:
 - **Allowed**: All pages (`Allow: /`)
-- **Blocked**: Only service paths (`/api/`, `/_next/`)
+- **Blocked**: Only service paths (`/api/`)
 - **Never block** non-existent paths to avoid Google Search Console indexing issues
 - After changes, run `npm run build` to regenerate `dist/robots.txt`
 - Deploy via git push to `dev` branch triggers automatic GitHub Actions deployment

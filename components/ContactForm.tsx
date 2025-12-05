@@ -1,4 +1,3 @@
-
 'use client'
 
 import React, { useState } from 'react';
@@ -92,139 +91,138 @@ const ContactForm = () => {
     }
   };
   return (
-    <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
-      <div className="container">
-        <div className="text-center mb-12">
-          <div className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
-            <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">
-              Нужна консультация?<br />
-              Перезвоним в удобное время!
-            </h2>
-          </div>
+    <section id="contact" className="bg-gray-50 py-24 relative">
+      {/* Modern Background Pattern */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-40">
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white to-transparent"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl"></div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-sans tracking-tight mb-4">
+            Нужна <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-blue-500">консультация?</span>
+          </h2>
+          <p className="text-xl text-gray-500">Перезвоним в удобное для вас время</p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Contact Information */}
-          <div className="bg-white p-8 rounded-lg shadow-sm">
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-bold text-lg mb-4">Телефоны</h4>
-                <p className="text-gray-600">
-                  <a href="tel:+375293423221" className="block hover:text-brand-blue transition-colors">+375 (29) 342-32-21</a>
-                  <a href="tel:+375292589210" className="block hover:text-brand-blue transition-colors">+375 (29) 258-92-10</a>
-                </p>
-              </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+          {/* Contact Information Card */}
+          <div className="bg-white p-10 rounded-[40px] shadow-xl border border-gray-100 flex flex-col justify-between h-full relative overflow-hidden group">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-teal-50 to-blue-50 rounded-bl-[100px] -z-0 transition-transform group-hover:scale-110"></div>
+            
+            <div className="relative z-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-8">Наши контакты</h3>
               
-              <div>
-                <h4 className="font-bold text-lg mb-4">Email</h4>
-                <p className="text-gray-600">
-                  <a href="mailto:vitaliy9977@mail.ru" className="hover:text-brand-blue transition-colors">vitaliy9977@mail.ru</a>
-                </p>
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-500 shrink-0">
+                    📞
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Телефоны</p>
+                    <a href="tel:+375293423221" className="block text-lg font-bold hover:text-brand-blue transition-colors">+375 (29) 342-32-21</a>
+                    <a href="tel:+375292589210" className="block text-lg font-bold hover:text-brand-blue transition-colors">+375 (29) 258-92-10</a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-purple-50 rounded-2xl flex items-center justify-center text-purple-500 shrink-0">
+                    ✉️
+                  </div>
+                  <div>
+                     <p className="text-sm text-gray-500 mb-1">Email</p>
+                    <a href="mailto:vitaliy9977@mail.ru" className="text-lg font-medium hover:text-brand-blue transition-colors">vitaliy9977@mail.ru</a>
+                  </div>
+                </div>
+                
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-green-50 rounded-2xl flex items-center justify-center text-green-500 shrink-0">
+                    🕒
+                  </div>
+                  <div>
+                    <p className="text-sm text-gray-500 mb-1">Режим работы</p>
+                    <p className="text-lg font-medium text-gray-900">9:00 – 19:00 (Без выходных)</p>
+                  </div>
+                </div>
               </div>
-              
-              <div>
-                <h4 className="font-bold text-lg mb-4">Режим работы</h4>
-                <p className="text-gray-600">
-                  9:00 – 19:00<br />Без выходных
-                </p>
-              </div>
-              
-              <div className="flex space-x-4 items-center pt-4">
-                <a 
-                  href="viber://chat?number=%2B375293423221" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                >
-                  <img 
-                    src="/lovable-uploads/aee8cfd2-6b4f-4a4b-a2b1-42890379f49f.png" 
-                    alt="Viber" 
-                    className="w-10 h-10" 
-                  />
+            </div>
+
+            <div className="relative z-10 mt-12">
+              <p className="text-gray-500 mb-4 text-sm font-medium">Мы в мессенджерах:</p>
+              <div className="flex gap-4">
+                <a href="viber://chat?number=%2B375293423221" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+                  <img src="/lovable-uploads/aee8cfd2-6b4f-4a4b-a2b1-42890379f49f.png" alt="Viber" className="w-12 h-12 drop-shadow-md" />
                 </a>
-                <a 
-                  href="https://wa.me/375293423221" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                >
-                  <img 
-                    src="/lovable-uploads/653de03b-05d0-4cd5-b6bf-515fa14a31d6.png" 
-                    alt="WhatsApp" 
-                    className="w-10 h-10" 
-                  />
+                <a href="https://wa.me/375293423221" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+                  <img src="/lovable-uploads/653de03b-05d0-4cd5-b6bf-515fa14a31d6.png" alt="WhatsApp" className="w-12 h-12 drop-shadow-md" />
                 </a>
-                <a 
-                  href="https://www.instagram.com/dveri_okna_krovlya_lelchicy/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="hover:opacity-80 transition-opacity"
-                >
-                  <img 
-                    src="/lovable-uploads/76c10cc3-6dab-4728-9d5f-264aa6a1e4b8.png" 
-                    alt="Instagram" 
-                    className="w-10 h-10" 
-                  />
+                <a href="https://www.instagram.com/dveri_okna_krovlya_lelchicy/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+                  <img src="/lovable-uploads/76c10cc3-6dab-4728-9d5f-264aa6a1e4b8.png" alt="Instagram" className="w-12 h-12 drop-shadow-md" />
                 </a>
               </div>
             </div>
           </div>
           
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-sm">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block mb-2 font-medium">Ваше имя</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
-                  placeholder="Введите ваше имя"
-                  required
-                />
-              </div>
+          <div className="bg-white p-10 rounded-[40px] shadow-2xl border border-gray-100 relative">
+            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Оставить заявку</h3>
               
-              <div>
-                <label htmlFor="email" className="block mb-2 font-medium">Email</label>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="text-sm font-semibold text-gray-700 ml-1">Ваше имя</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full px-6 py-4 bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue rounded-2xl transition-all outline-none font-medium" 
+                    placeholder="Иван"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="text-sm font-semibold text-gray-700 ml-1">Телефон</label>
+                  <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-6 py-4 bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue rounded-2xl transition-all outline-none font-medium" 
+                    placeholder="+375 XX XXX XX XX"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="email" className="text-sm font-semibold text-gray-700 ml-1">Email</label>
                 <input 
                   type="email" 
                   id="email" 
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
-                  placeholder="your@email.com"
+                  className="w-full px-6 py-4 bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue rounded-2xl transition-all outline-none font-medium" 
+                  placeholder="example@mail.com"
                   required
                 />
               </div>
               
-              <div>
-                <label htmlFor="phone" className="block mb-2 font-medium">Телефон</label>
-                <input 
-                  type="tel" 
-                  id="phone" 
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
-                  placeholder="+375 XX XXX XX XX"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="message" className="block mb-2 font-medium">Сообщение</label>
+              <div className="space-y-2">
+                <label htmlFor="message" className="text-sm font-semibold text-gray-700 ml-1">Сообщение</label>
                 <textarea 
                   id="message" 
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4} 
-                  className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
-                  placeholder="Введите ваше сообщение"
+                  className="w-full px-6 py-4 bg-gray-50 border-transparent focus:bg-white focus:border-brand-blue rounded-2xl transition-all outline-none font-medium resize-none" 
+                  placeholder="Какой вопрос вас интересует?"
                   required
                 ></textarea>
               </div>
@@ -232,14 +230,14 @@ const ContactForm = () => {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-gradient-to-r from-brand-orange to-orange-500 text-white font-bold text-lg px-8 py-4 rounded-2xl hover:shadow-lg hover:shadow-orange-200 transform hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </button>
               
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-xs text-gray-400 text-center mt-4">
                 Нажимая кнопку, вы соглашаетесь на {" "}
-                <a href="/consent" target="_blank" rel="noopener noreferrer" className="text-brand-blue hover:underline">
+                <a href="/consent" target="_blank" rel="noopener noreferrer" className="text-gray-600 underline hover:text-brand-blue">
                   обработку персональных данных
                 </a>
               </p>
