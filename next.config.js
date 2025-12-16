@@ -6,7 +6,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
+  // Static export for GitHub Pages
+  output: process.env.VERCEL ? undefined : 'export',
   trailingSlash: true,
   distDir: 'dist',
 }
