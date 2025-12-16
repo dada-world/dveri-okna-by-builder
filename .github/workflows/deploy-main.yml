@@ -1,22 +1,23 @@
-name: Deploy Staging (dev)
+name: Deploy Production to GitHub Pages
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: pages-staging
-  cancel-in-progress: true
+  group: pages-production
+  cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_BASE_PATH: "/dveri-okna-by-builder"
       NEXT_PUBLIC_FORM_ENDPOINT: "https://submit-form.com/esY14v503"
     steps:
       - name: Checkout
@@ -34,15 +35,18 @@ jobs:
       - name: Build (Next.js export)
         run: npm run build
 
-      - name: Archive staging build
-        run: |
-          cd dist
-          tar -czf ../staging-build.tar.gz .
-          cd ..
-
-      - name: Upload staging artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: staging-build
-          path: staging-build.tar.gz
-          retention-days: 7
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
