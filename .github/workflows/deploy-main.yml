@@ -35,6 +35,9 @@ jobs:
       - name: Build (Next.js export)
         run: npm run build
 
+      - name: Add CNAME for custom domain
+        run: echo "dverivokna.by" > dist/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
