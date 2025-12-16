@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Cloudflare Pages требует Edge Runtime для API routes
+export const runtime = 'edge';
+
 // URL для отправки формы
 const FORM_SUBMIT_URL = 'https://submit-form.com/esY14v503';
 
