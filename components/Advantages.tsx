@@ -1,45 +1,39 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Truck, Calendar, Shield, Ruler, LayoutGrid, CreditCard, ArrowRight } from 'lucide-react';
+import { Truck, Calendar, Shield, Ruler, LayoutGrid, CreditCard } from 'lucide-react';
 
 const Advantages = () => {
   const advantages = [
     {
-      icon: <Truck className="w-6 h-6 text-white" />,
+      icon: <Truck className="w-6 h-6 text-brand-yellow" />,
       title: "Бесплатная доставка",
-      description: "Доставим ваш заказ быстро и бесплатно в любой уголок страны.",
-      bg: "bg-blue-500"
+      description: "Доставим ваш заказ быстро и бесплатно в любой уголок страны."
     },
     {
-      icon: <Calendar className="w-6 h-6 text-white" />,
+      icon: <Calendar className="w-6 h-6 text-brand-yellow" />,
       title: "Работаем с 2009 года",
-      description: "Многолетний опыт и надежность компании гарантируют качество услуг.",
-      bg: "bg-orange-500"
+      description: "Многолетний опыт и надежность компании гарантируют качество услуг."
     },
     {
-      icon: <Shield className="w-6 h-6 text-white" />,
-      title: "Гарантия качества",
-      description: "Только высококачественные товары и услуги для наших клиентов.",
-      bg: "bg-green-500"
+      icon: <Shield className="w-6 h-6 text-brand-yellow" />,
+      title: "Качество",
+      description: "Только высококачественные товары и услуги для наших клиентов."
     },
     {
-      icon: <Ruler className="w-6 h-6 text-white" />,
+      icon: <Ruler className="w-6 h-6 text-brand-yellow" />,
       title: "Индивидуальный размер",
-      description: "Окна и двери ПВХ под ваш размер с доставкой по всей стране.",
-      bg: "bg-purple-500"
+      description: "Окна и двери ПВХ под ваш размер с доставкой по всей стране."
     },
     {
-      icon: <LayoutGrid className="w-6 h-6 text-white" />,
+      icon: <LayoutGrid className="w-6 h-6 text-brand-yellow" />,
       title: "Сложные конструкции",
-      description: "Делаем любой сложности конструкции из ПВХ, ламинируем и тонируем стекло.",
-      bg: "bg-rose-500"
+      description: "Делаем любой сложности конструкции из ПВХ, ламинируем и тонируем стекло."
     },
     {
-      icon: <CreditCard className="w-6 h-6 text-white" />,
+      icon: <CreditCard className="w-6 h-6 text-brand-yellow" />,
       title: "Гибкая оплата",
-      description: "Работаем с наличным и безналичным расчетом, предлагаем различные варианты оплаты.",
-      bg: "bg-teal-500"
+      description: "Работаем с наличным и безналичным расчетом, предлагаем различные варианты оплаты."
     }
   ];
 
@@ -66,38 +60,23 @@ const Advantages = () => {
   }, []);
 
   return (
-    <section id="advantages" className="bg-gray-50 py-24" ref={sectionRef}>
+    <section id="advantages" className="bg-white py-16" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gray-900 font-sans tracking-tight">
-            Почему выбирают <span className="text-brand-blue">нас?</span>
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Мы создаем не просто окна, а комфорт и уют в вашем доме. Вот 6 причин доверить нам свой выбор.
-          </p>
+        <div className="text-center mb-16">
+          <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
+            <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">6 причин выбрать нас</h2>
+          </div>
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {advantages.map((advantage, index) => (
-            <div 
-              key={index} 
-              className={`group bg-white p-8 rounded-[32px] shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className={`w-14 h-14 ${advantage.bg} rounded-2xl flex items-center justify-center mb-6 shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+            <div key={index} className="flex items-start">
+              <div className="mr-5 mt-1 text-brand-yellow">
                 {advantage.icon}
               </div>
-              
-              <h3 className="text-xl font-bold mb-3 text-gray-900 group-hover:text-brand-blue transition-colors">
-                {advantage.title}
-              </h3>
-              
-              <p className="text-gray-500 leading-relaxed mb-6">
-                {advantage.description}
-              </p>
-
-              <div className="flex items-center text-sm font-semibold text-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
-                Подробнее <ArrowRight className="ml-2 w-4 h-4" />
+              <div>
+                <h3 className="text-xl font-medium mb-2">{advantage.title}</h3>
+                <p className="text-gray-600">{advantage.description}</p>
               </div>
             </div>
           ))}

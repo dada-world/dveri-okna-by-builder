@@ -8,7 +8,7 @@ const AboutUs = () => {
   const [count2, setCount2] = useState(0);
   const [count3, setCount3] = useState(0);
   const aboutRef = useRef<HTMLDivElement>(null);
-  
+
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
@@ -27,7 +27,7 @@ const AboutUs = () => {
 
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Check on initial load
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -39,17 +39,17 @@ const AboutUs = () => {
       const duration = 2000; // 2 seconds duration
       const framesPerSecond = 60;
       const totalFrames = duration / 1000 * framesPerSecond;
-      
+
       const target1 = 15;
       const target2 = 80;
       const target3 = 6;
 
       let frame = 0;
-      
+
       const counter = setInterval(() => {
         frame++;
         const progress = frame / totalFrames;
-        
+
         if (progress < 1) {
           setCount1(Math.floor(target1 * progress));
           setCount2(Math.floor(target2 * progress));
@@ -61,54 +61,50 @@ const AboutUs = () => {
           clearInterval(counter);
         }
       }, 1000 / framesPerSecond);
-      
+
       return () => clearInterval(counter);
     }
   }, [visible]);
 
   return (
-    <section id="about" className="py-24 bg-[#FFF5EC]/30">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 font-sans tracking-tight mb-8">
-            Почему <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-teal-600">выбирают нас?</span>
-          </h2>
-          
-          <p className="text-xl text-gray-600 leading-relaxed animate-fade-in-up">
-            Наша компания уже более <span className="text-brand-orange font-bold bg-orange-50 px-2 py-1 rounded-lg border border-orange-100">{count1}+</span> лет работает на рынке оконных конструкций. 
-            Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества 
-            предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
+    <section id="about" className="py-16 bg-[#FFF5EC] animate-on-scroll">
+      <div className="container">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="mb-6 animate-fade-in-up">
+            <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20 hover-glow animate-wobble-slight">
+              <h2 className="text-4xl font-bold transform skew-x-12 text-white animate-pulse-soft">Почему мы?</h2>
+            </div>
+          </div>
+          <p className="text-xl text-gray-600 animate-fade-in-up animate-stagger-1">
+            Наша компания уже более <span className="text-brand-orange font-bold animate-bounce-subtle">{count1}+</span> лет работает на рынке оконных конструкций. Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
           </p>
         </div>
-        
+
         <div ref={aboutRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          {/* Card 1 */}
-          <div className="bg-white p-10 rounded-[32px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-            <div className="mb-4 inline-block p-4 rounded-2xl bg-orange-50 group-hover:scale-110 transition-transform duration-300">
-               <span className="text-5xl font-bold text-brand-orange">{count1}+</span>
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm animate-fade-in-up animate-stagger-2 card-hover hover-glow">
+            <div className="text-4xl font-bold mb-4">
+              <span className="text-brand-orange animate-bounce-subtle">{count1}+</span>
             </div>
-            <p className="text-lg font-medium text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up animate-stagger-3">
               лет опыта работы в сфере оконных технологий
             </p>
           </div>
-          
-          {/* Card 2 */}
-          <div className="bg-white p-10 rounded-[32px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-            <div className="mb-4 inline-block p-4 rounded-2xl bg-orange-50 group-hover:scale-110 transition-transform duration-300">
-               <span className="text-5xl font-bold text-brand-orange">{count2}%</span>
+
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm animate-fade-in-up animate-stagger-3 card-hover hover-glow">
+            <div className="text-4xl font-bold mb-4">
+              <span className="text-brand-orange animate-bounce-subtle">{count2}%</span>
             </div>
-            <p className="text-lg font-medium text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up animate-stagger-4">
               клиентов обращаются к нам повторно
             </p>
           </div>
-          
-          {/* Card 3 */}
-          <div className="bg-white p-10 rounded-[32px] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)] border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-            <div className="mb-4 inline-block p-4 rounded-2xl bg-orange-50 group-hover:scale-110 transition-transform duration-300">
-               <span className="text-5xl font-bold text-brand-orange">{count3} <span className="text-3xl text-gray-400">из</span> 10</span>
+
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm animate-fade-in-up animate-stagger-4 card-hover hover-glow">
+            <div className="text-4xl font-bold mb-4">
+              <span className="text-brand-orange animate-bounce-subtle">{count3} из 10</span>
             </div>
-            <p className="text-lg font-medium text-gray-600">
-              новых клиентов приходят по рекомендациям
+            <p className="text-lg text-gray-600 animate-fade-in-up animate-stagger-5">
+              новых клиентов обращаются к нам по рекомендациям от довольных заказчиков
             </p>
           </div>
         </div>

@@ -5,8 +5,8 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/E-esi5Yorl1sA1F2l85fG/_buildManifest.js",
-    "static/E-esi5Yorl1sA1F2l85fG/_ssgManifest.js"
+    "static/yG-9Mt5haLqqqHki0RgyI/_buildManifest.js",
+    "static/yG-9Mt5haLqqqHki0RgyI/_ssgManifest.js"
   ],
   "rootMainFiles": [
     "static/chunks/webpack-fa5a53bef84c6b06.js",
@@ -20,16 +20,14 @@
       "static/chunks/framework-a1662ef8f4df0eff.js",
       "static/chunks/main-bd02ad4be8798ab0.js",
       "static/chunks/664-273d02034b9d0b97.js",
-      "static/chunks/470-17b7100435b0e0f4.js",
-      "static/chunks/pages/CalculatorPage-7303a3566fa33cfd.js"
+      "static/chunks/pages/CalculatorPage-86cfa9129ebdd0d9.js"
     ],
     "/Index": [
       "static/chunks/webpack-fa5a53bef84c6b06.js",
       "static/chunks/framework-a1662ef8f4df0eff.js",
       "static/chunks/main-bd02ad4be8798ab0.js",
       "static/chunks/664-273d02034b9d0b97.js",
-      "static/chunks/470-17b7100435b0e0f4.js",
-      "static/chunks/pages/Index-fae856c90caebebe.js"
+      "static/chunks/pages/Index-d85f94e68ecc5ba3.js"
     ],
     "/NotFound": [
       "static/chunks/webpack-fa5a53bef84c6b06.js",

@@ -21,17 +21,25 @@
       "static/chunks/117-2542773e972c8d9d.js",
       "static/chunks/main-app-18273f02526778ca.js",
       "static/css/563c3f026b360e43.css",
-      "static/css/cf7354c91c1a1610.css",
+      "static/css/7de1fd317ed42443.css",
       "static/chunks/602-ade65e66a63f3097.js",
       "static/chunks/app/layout-b86d17c8fd520f56.js"
     ],
-    "/portfolio/page": [
+    "/page": [
       "static/chunks/webpack-fa5a53bef84c6b06.js",
       "static/chunks/fd9d1056-764cda20c6e1258e.js",
       "static/chunks/117-2542773e972c8d9d.js",
       "static/chunks/main-app-18273f02526778ca.js",
       "static/chunks/972-0fea25be27918f94.js",
-      "static/chunks/app/portfolio/page-13cadb099964da47.js"
+      "static/chunks/app/page-f049803a22a3c1d4.js"
+    ],
+    "/calculator/page": [
+      "static/chunks/webpack-fa5a53bef84c6b06.js",
+      "static/chunks/fd9d1056-764cda20c6e1258e.js",
+      "static/chunks/117-2542773e972c8d9d.js",
+      "static/chunks/main-app-18273f02526778ca.js",
+      "static/chunks/972-0fea25be27918f94.js",
+      "static/chunks/app/calculator/page-9798513c9e24c0ef.js"
     ],
     "/consent/page": [
       "static/chunks/webpack-fa5a53bef84c6b06.js",
@@ -40,21 +48,13 @@
       "static/chunks/main-app-18273f02526778ca.js",
       "static/chunks/app/consent/page-6b4d60bfee206f9d.js"
     ],
-    "/page": [
+    "/portfolio/page": [
       "static/chunks/webpack-fa5a53bef84c6b06.js",
       "static/chunks/fd9d1056-764cda20c6e1258e.js",
       "static/chunks/117-2542773e972c8d9d.js",
       "static/chunks/main-app-18273f02526778ca.js",
       "static/chunks/972-0fea25be27918f94.js",
-      "static/chunks/app/page-181de251e638fd47.js"
-    ],
-    "/calculator/page": [
-      "static/chunks/webpack-fa5a53bef84c6b06.js",
-      "static/chunks/fd9d1056-764cda20c6e1258e.js",
-      "static/chunks/117-2542773e972c8d9d.js",
-      "static/chunks/main-app-18273f02526778ca.js",
-      "static/chunks/972-0fea25be27918f94.js",
-      "static/chunks/app/calculator/page-4c379997cf33d5ef.js"
+      "static/chunks/app/portfolio/page-d7093781afd9d641.js"
     ]
   }
 }
