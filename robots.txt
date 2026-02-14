@@ -1,0 +1,18 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+
+User-Agent: Yandex
+Allow: /
+Disallow: /api/
+
+Host: https://dverivokna.by
+Sitemap: https://dverivokna.by/sitemap.xml
